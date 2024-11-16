@@ -11,7 +11,7 @@ const StatsSection = () => {
     },
     {
       icon: <Trophy className="w-8 h-8" />,
-      value: '5M WRLD',
+      value: '5M ETH',
       label: 'Total Prizes'
     },
     {

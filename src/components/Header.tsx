@@ -9,20 +9,20 @@ const Header = () => {
   const [balance, setBalance] = useState<string>('Fetching...');
 
   const navigation = [
-    { name: 'Home', href: '/', icon: <Home className="w-5 h-5" /> },
+    { name: 'Home', href: '#', icon: <Home className="w-5 h-5" /> },
     {
       name: 'How It Works',
-      href: '/how-it-works',
+      href: '#',
       icon: <HelpCircle className="w-5 h-5" />,
     },
     {
       name: 'Lottery History',
-      href: '/history',
+      href: '#',
       icon: <History className="w-5 h-5" />,
     },
     {
       name: 'My Tickets',
-      href: '/my-tickets',
+      href: '#',
       icon: <Ticket className="w-5 h-5" />,
     },
   ];
@@ -37,7 +37,7 @@ const Header = () => {
 
   const chargeHandler = useCallback(() => {
     const chargeDetails = {
-      name: 'Decentralized Lottery',
+      name: 'Lotto Win',
       description: 'Decentralized Lottery',
       pricing_type: 'fixed_price',
       local_price: {

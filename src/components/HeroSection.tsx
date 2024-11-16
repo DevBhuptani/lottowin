@@ -62,14 +62,14 @@ const HeroSection = () => {
                 <div className="flex justify-between items-center">
                   <span className="text-gray-300">Current Prize Pool</span>
                   <span className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                    1,000,000 WRLD
+                    1,000,000 ETH
                   </span>
                 </div>
               </div>
               <div className="glass-morphism rounded-xl p-6">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-300">Ticket Price</span>
-                  <span className="text-xl font-bold">10 WRLD</span>
+                  <span className="text-xl font-bold">0.1 ETH</span>
                 </div>
               </div>
               <motion.button

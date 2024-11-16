@@ -45,7 +45,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Contact</h3>
             <ul className="space-y-2">
-              <li className="text-gray-600 text-sm">support@worldchainlottery.com</li>
+              <li className="text-gray-600 text-sm">support@lottowin.com</li>
               <li className="text-gray-600 text-sm">Discord Community</li>
             </ul>
           </div>
@@ -53,7 +53,7 @@ const Footer = () => {
         
         <div className="mt-12 pt-8 border-t border-gray-200">
           <p className="text-center text-gray-500 text-sm">
-            © {new Date().getFullYear()} World Chain Lottery. All rights reserved.
+            © {new Date().getFullYear()} Lotto Win. All rights reserved.
           </p>
         </div>
       </div>
