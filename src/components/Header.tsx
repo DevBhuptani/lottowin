@@ -2,6 +2,7 @@ import { Home, HelpCircle, History, Ticket, X, Menu } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
 import { LifecycleStatus } from '@coinbase/onchainkit/checkout';
 import useCreateCharge from '../backend/coinbase/useCreateCharge';
+import { getTicketsByUser } from '../backend/integration';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -98,6 +99,23 @@ const Header = () => {
   useEffect(() => {
     const address = walletAddress;
     fetchBalance(address);
+  }, [walletAddress]);
+
+  useEffect(() => {
+    const fetchTickets = async () => {
+      try {
+        if (walletAddress) {
+          const tickets = await getTicketsByUser(walletAddress);
+          alert(
+            `You currently have ${tickets.length} tickets. If you would like to purchase more, please click the 'Buy Tickets' button below.`
+          );
+        }
+      } catch (error) {
+        console.error('Error fetching tickets:', error);
+      }
+    };
+
+    fetchTickets(); // Call the async function
   }, [walletAddress]);
 
   return (
