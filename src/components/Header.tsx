@@ -49,11 +49,9 @@ const Header = () => {
   }, [createCharge]);
 
   const connectWallet = async () => {
-    // @ts-ignore
     if (window?.ethereum) {
       try {
         // Request wallet connection
-        // @ts-ignore
         const accounts = await window?.ethereum.request({
           method: 'eth_requestAccounts',
         });
@@ -88,7 +86,7 @@ const Header = () => {
 
       const rawBalance = data?.coin_balance || 0;
       const balanceInEther = rawBalance / 1e18;
-      const formattedBalance = balanceInEther.toFixed(2);
+      const formattedBalance = balanceInEther.toFixed(6);
 
       setBalance(`${formattedBalance} ETH`);
     } catch (error) {

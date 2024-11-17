@@ -1,28 +1,44 @@
-// import { ethers } from 'ethers';
-// import { lottoWinAbi } from './abi/lottowin';
+import { ethers } from 'ethers';
+import { lottoWinAbi } from './abi/lottowin';
 
-// export async function buyTicket(): any {
-//   try {
-//     // // @ts-ignore
-//     // const provider = new ethers.providers.JsonRpcProvider(
-//     //   'https://sepolia.optimism.io'
-//     // );
-//     // const signer = provider.getSigner();
+export async function buyTicket(): Promise<any> {
+  try {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-//     // const contract = new ethers.Contract(
-//     //   '0xC986F062Fc39223ab3D84DaB7494711CEbA349ea',
-//     //   lottoWinAbi,
-//     //   signer
-//     // );
+    const signer = provider.getSigner();
 
-//     // console.log('LottoWin ABI:', lottoWinAbi);
+    const contract = new ethers.Contract(
+      '0xC986F062Fc39223ab3D84DaB7494711CEbA349ea',
+      lottoWinAbi,
+      signer
+    );
+    
+    await contract.buyTicket({ value: ethers.utils.parseEther('0.001') });
+    
+    return true;
+  } catch (error) {
+    console.error('Error in buyTicket:', error);
+    throw error;
+  }
+}
 
-//     // // Example interaction: Call a method to buy a ticket
-//     // // await contract.buy({ value: ethers.utils.parseEther('0.1') });
+export async function getTicketsByUser(address: any): Promise<any> {
+  try {
+    const provider = new ethers.providers.JsonRpcProvider(
+      'https://sepolia.optimism.io'
+    );
 
-//     // return contract;
-//   } catch (error) {
-//     console.error('Error in buyTicket:', error);
-//     throw error;
-//   }
-// }
+    const contract = new ethers.Contract(
+      '0xC986F062Fc39223ab3D84DaB7494711CEbA349ea',
+      lottoWinAbi,
+      provider
+    );
+
+    const tickets = await contract.getTicketsByUser(address);
+
+    return tickets;
+  } catch (error) {
+    console.error('Error in buyTicket:', error);
+    throw error;
+  }
+}
